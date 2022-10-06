@@ -1,0 +1,24 @@
+{
+    "routes": [
+        {
+            "component": "PostRecipeComponent",
+            "path": "home",
+            "children": [
+                {
+                    "component": "testfileupploadComponent",
+                    "path": "fileupload"
+                }
+            ]
+        },
+        {
+            "path": "''",
+            "redirectTo": "home",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

@@ -1,0 +1,416 @@
+[
+    {
+        "id": "sd_0bzwrLR1UvFN9Bfm",
+        "type": "tab",
+        "createdDate": "2022-09-28T06:25:03.921Z",
+        "label": "PostRecipe",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "PostRecipeComponent"
+    },
+    {
+        "id": "sd_FY5845ebVlbHZYuH",
+        "type": "OnInit",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_FY5845ebVlbHZYuH",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_hVwgViPy5qjmDN4D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "PostRecipeComponent"
+    },
+    {
+        "id": "sd_hVwgViPy5qjmDN4D",
+        "type": "PageVariables",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Page Variables",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "imageURL",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "file",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "id",
+                "typedIpValue": {
+                    "type": "bh",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "pageVariables",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_bH8HezBnqzv6drjH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_NvnOvzbEDr5Qgbxi",
+        "type": "PageStart",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "imgpreview",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "imgpreview",
+        "category": "General",
+        "x": 85,
+        "y": 140,
+        "wires": [
+            [
+                "sd_d28ijtIk3VwbsNCl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "PostRecipeComponent"
+    },
+    {
+        "id": "sd_d28ijtIk3VwbsNCl",
+        "type": "Script",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "previewfunc",
+        "script": "const file = bh.input.event.target.files[0];\npage.file=bh.input.event.target.files[0];\n\nconst reader = new FileReader();\nreader.readAsDataURL(file)\nconsole.log(page.RecipeForm)\nreader.onload = () => {\n  page.imageURL = reader.result ;\n}\n",
+        "functionName": "previewfunc",
+        "category": "Function",
+        "x": 225,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_bH8HezBnqzv6drjH",
+        "type": "UseDependency",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formControl"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "formGroup"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_bH8HezBnqzv6drjH",
+        "category": "Function",
+        "x": 305,
+        "y": 40,
+        "wires": [
+            [
+                "sd_m61hyM81b2S7IzcM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_m61hyM81b2S7IzcM",
+        "type": "Script",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.RecipeForm = new page.formGroup({\n    name: new page.formControl(''),\n    description: new page.formControl(''),\n    image: new page.formControl('')\n});",
+        "functionName": "sd_m61hyM81b2S7IzcM",
+        "category": "Function",
+        "x": 405,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zI3BlQPCd0AWCznU",
+        "type": "PageStart",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "SubmitForm",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submitForm",
+        "category": "General",
+        "x": 45,
+        "y": 260,
+        "wires": [
+            [
+                "sd_JcwgdaVslEPRW05C"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "PostRecipeComponent"
+    },
+    {
+        "id": "sd_dHH0JqHl1hcF7Dqy",
+        "type": "Script",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.RecipeForm.value.image=page.id\nconsole.log(page.RecipeForm.value)",
+        "functionName": "sd_dHH0JqHl1hcF7Dqy",
+        "category": "Function",
+        "x": 405,
+        "y": 260,
+        "wires": [
+            [
+                "sd_85xif7yj9oOPxa2r"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_85xif7yj9oOPxa2r",
+        "type": "PageCallService",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_NUu58pgp0tCcrtyd",
+            "type": "tab",
+            "createdDate": "2022-09-28T11:02:57.525Z",
+            "label": "itemService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_X5YFgT21pQLkE7Kf",
+            "flowName": "insertitems"
+        },
+        "inputVariables": [
+            {
+                "key": "items",
+                "map": true,
+                "valueType": "this.page",
+                "value": "RecipeForm.value"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/itemService",
+        "startName": "insertitems",
+        "inputParams": [
+            "this.page.RecipeForm.value"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_85xif7yj9oOPxa2r",
+        "category": "General",
+        "x": 545,
+        "y": 260,
+        "wires": [
+            [
+                "sd_tPzn0jpi9mMKcScG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_tPzn0jpi9mMKcScG",
+        "type": "Script",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.local.id)",
+        "functionName": "sd_tPzn0jpi9mMKcScG",
+        "category": "Function",
+        "x": 665,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JcwgdaVslEPRW05C",
+        "type": "PageCallService",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_NUu58pgp0tCcrtyd",
+            "type": "tab",
+            "createdDate": "2022-09-28T11:02:57.525Z",
+            "label": "itemService",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_k5F5lbKQCT7KE0rh",
+            "flowName": "uploadfile"
+        },
+        "inputVariables": [
+            {
+                "key": "file",
+                "map": true,
+                "valueType": "this.page",
+                "value": "file"
+            },
+            {
+                "key": "id",
+                "map": false,
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "id",
+                "valueType": "this.page",
+                "value": "id",
+                "mapVarName": "id",
+                "localVar": "this.page.id"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/itemService",
+        "startName": "uploadfile",
+        "inputParams": [
+            "this.page.file",
+            ""
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_JcwgdaVslEPRW05C",
+        "category": "General",
+        "x": 185,
+        "y": 260,
+        "wires": [
+            [
+                "sd_xyqGlV8eCxkVBsQZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xyqGlV8eCxkVBsQZ",
+        "type": "Script",
+        "z": "sd_0bzwrLR1UvFN9Bfm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.id)",
+        "functionName": "sd_xyqGlV8eCxkVBsQZ",
+        "category": "Function",
+        "x": 285,
+        "y": 260,
+        "wires": [
+            [
+                "sd_dHH0JqHl1hcF7Dqy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostRecipeComponent",
+        "generated": true
+    }
+]

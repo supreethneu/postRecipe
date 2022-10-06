@@ -1,0 +1,7 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div>
+      <input hidden (change)="imgPreviewAndSubmit($event)" #fileInput type="file" accept="image/*" id="file"><button mat-raised-button (click)="fileInput.click()">Submit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{
+    "displayName": "PostRecipe",
+    "appName": "postrecipe",
+    "description": "Recipe posting app",
+    "lastModified": "2022-09-28T06:24:41.888Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "classic",
+    "templateName": "blank",
+    "createDate": "2022-09-28T06:24:40.787Z",
+    "analyticsId": "6879b4c6-05eb-c13d-d1e5-eba96b08ad64",
+    "createdStudioVersion": "8.3.0"
+}

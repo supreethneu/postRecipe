@@ -1,0 +1,251 @@
+[
+    {
+        "id": "sd_NUu58pgp0tCcrtyd",
+        "type": "tab",
+        "createdDate": "2022-09-28T11:02:57.525Z",
+        "label": "itemService",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "itemService",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_X5YFgT21pQLkE7Kf",
+        "type": "Start",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "insertitems",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "items",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "insertitems",
+        "category": "General",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ss7FcZZE3wieRDGI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "itemService"
+    },
+    {
+        "id": "sd_FcUdrsNZMcX7A2ps",
+        "type": "HttpRequest",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.items",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "items"
+        },
+        "resultMapping": "bh.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_FcUdrsNZMcX7A2ps",
+        "category": "HTTP",
+        "x": 405,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "itemService",
+        "generated": true
+    },
+    {
+        "id": "sd_ss7FcZZE3wieRDGI",
+        "type": "Script",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url= bh.system.environment.properties.ssdURL + 'items'",
+        "functionName": "sd_ss7FcZZE3wieRDGI",
+        "category": "Function",
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "sd_FcUdrsNZMcX7A2ps"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "itemService",
+        "generated": true
+    },
+    {
+        "id": "sd_k5F5lbKQCT7KE0rh",
+        "type": "Start",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "uploadfile",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "file",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "uploadfile",
+        "category": "General",
+        "x": 65,
+        "y": 260,
+        "wires": [
+            [
+                "sd_lejf8uBOQgSSam37"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "itemService"
+    },
+    {
+        "id": "sd_lDtGTKhfbsNKQAtT",
+        "type": "HttpRequest",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "text",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.formData",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "formData"
+        },
+        "resultMapping": "bh.result",
+        "resultMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_lDtGTKhfbsNKQAtT",
+        "category": "HTTP",
+        "x": 485,
+        "y": 280,
+        "wires": [
+            [
+                "sd_ozqGU1lpQy1ypmAy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "itemService",
+        "generated": true
+    },
+    {
+        "id": "sd_lejf8uBOQgSSam37",
+        "type": "Script",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url= bh.system.environment.properties.ssdURL + 'fileupload'\nconsole.log(bh.input.file);\nbh.input.formData = new FormData();\nbh.input.formData.append('file',bh.input.file);",
+        "functionName": "sd_lejf8uBOQgSSam37",
+        "category": "Function",
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "sd_lDtGTKhfbsNKQAtT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "itemService",
+        "generated": true
+    },
+    {
+        "id": "sd_ozqGU1lpQy1ypmAy",
+        "type": "Script",
+        "z": "sd_NUu58pgp0tCcrtyd",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.id=bh.result;\n",
+        "functionName": "sd_ozqGU1lpQy1ypmAy",
+        "category": "Function",
+        "x": 640,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "itemService",
+        "generated": true
+    }
+]

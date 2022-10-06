@@ -1,0 +1,14 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_yBfGXUneCiYqvXz8",
+        "type": "tab",
+        "createdDate": "2022-09-30T06:54:17.438Z",
+        "label": "postmiddleware",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "postmiddleware",
+        "relativeParentPath": ""
+    }
+]

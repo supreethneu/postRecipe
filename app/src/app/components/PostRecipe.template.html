@@ -1,0 +1,28 @@
+<div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" fxFlexFill formGroup="RecipeForm">
+  <router-outlet></router-outlet>
+  <mat-card>
+    <mat-card-title align="center">Post Your Recipe</mat-card-title>
+
+    <img mat-card-image *ngIf="page.imageURL" formControlName="image" style="object-fit: contain; width: 300px; height: 200px;" [src]="page.imageURL">
+
+    <mat-card-content align="center">
+      <form [formGroup]="page.RecipeForm">
+        <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+          <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Recipe Name" [required]="false" formControlName="name">
+
+          </mat-form-field>
+          <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+            <input matInput placeholder="Recipe Description" [required]="false" formControlName="description">
+
+          </mat-form-field><button mat-raised-button (click)="fileInput.click()">Add Image</button>
+          <div>
+            <input hidden (change)="imgpreview($event)" #fileInput type="file" accept="image/*" id="file">
+          </div><button mat-raised-button (click)="submitForm()">Submit</button>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions></mat-card-actions>
+  </mat-card>
+</div>

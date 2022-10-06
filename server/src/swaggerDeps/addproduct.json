@@ -1,0 +1,30 @@
+{
+    "/items": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [
+                "multipart/form-data"
+            ],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "addproduct"
+            ]
+        }
+    },
+    "/fileupload": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "addproduct"
+            ]
+        }
+    }
+}
